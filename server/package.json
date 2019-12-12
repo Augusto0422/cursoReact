@@ -2,13 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "API do projeto de curso react Impacta",
-  "main": "index.js",
+  "main": "src/loader.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Augusto0422/React.git"
+    "url": "git+https://github.com/Augusto0422/cursoReact.git"
   },
   "keywords": [
     "impacta",
@@ -22,5 +22,10 @@
   "homepage": "https://github.com/Augusto0422/React#readme",
   "dependencies": {
     "mongoose": "^5.8.0"
+  },
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "node-restful": "^0.2.6",
+    "nodemon": "^2.0.2"
   }
 }

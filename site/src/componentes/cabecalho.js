@@ -1,13 +1,19 @@
 import React from 'react'
 
+const URL = "http://localhost:3200/api/cursos"
+
 export class Cabecalho extends React.Component {
+    
+   
+    
     render() {
 
         const {titulo, subtitulo} = this.props
         return (
             <header className="pb-2 mt-4 mb-2 border-bottom">
-                <h2><strong>{this.props.titulo}</strong> -
-                <small>{this.props.subtitulo}</small></h2>
+                <h2><strong>{titulo}</strong>
+                - 
+                <small style={{marginleft: 10}}>{subtitulo}</small></h2>
             </header>
         )
     }

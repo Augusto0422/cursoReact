@@ -1,12 +1,15 @@
 import React from 'react'
-import {Cabecalho} from '../../componentes/cabecalho'
+import { Cabecalho } from '../../componentes/cabecalho'
+
+import { FormCadastro } from './cadastro'
 
 export class CursoIndex extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1>Classe Curso</h1><Cabecalho titulo="Cursos"
-subtitulo="cadastro de cursos" />
+                <Cabecalho titulo="Cursos"
+                    subtitulo="cadastro de cursos" />
+                <FormCadastro/>
             </div>
         )
     }

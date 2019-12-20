@@ -1,13 +1,21 @@
 import React from "react";
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { dataOnchange, nomeOnChange, emailOnChange, telefoneOnChange } from '../../action/contatoAction'
+import { dataOnchange, nomeOnChange, emailOnChange, telefoneOnChange, assuntoOnChange, limpar, adicionar } from '../../action/contatoAction'
 
 class ContatoForm extends React.Component { 
+    
+    preAdicionar(evento){
+    
+        evento.preventDefault()
+        const {data, nome, email, telefone, assunto, adicionar} = this.props
+        
+        adicionar(data, nome, email, telefone, assunto)
+    }
 
-render() {
-    return (
-        <div>
+    render() {
+        return (
+            <div>
             <h3 className="border-bottom">Formulário</h3>
             <form>
                 <div className="form-group row">
@@ -17,7 +25,7 @@ render() {
                         <input type="date"
                             className="form-control" id="data"
                             value={this.props.data}
-                            onchange={this.props.dataOnchange}
+                            onChange={this.props.dataOnchange}
                              />
                     </div>
                 </div>
@@ -28,7 +36,7 @@ render() {
                         <input type="text"
                             className="form-control" id="nome"
                             value={this.props.nome}
-                            onchange={this.props.nomeOnchange} />
+                            onChange={this.props.nomeOnChange} />
                     </div>
                 </div>
                 <div className="form-group row">
@@ -38,7 +46,7 @@ render() {
                         <input type="email"
                             className="form-control" id="email"
                             value={this.props.email} 
-                            onchange={this.props.emailOnchange}/>
+                            onChange={this.props.emailOnChange}/>
                     </div>
                 </div>
                 <div className="form-group row">
@@ -47,7 +55,8 @@ render() {
                         <div className="col-sm-9">
                             <input type="tel"
                                 className="form-control" id="telefone"
-                                value={this.props.telefone} />
+                                value={this.props.telefone}
+                                onChange={this.props.telefoneOnChange} />
                         </div>
                     </div>
                 <div className="form-group row">
@@ -57,13 +66,19 @@ render() {
                         <textarea className="form-control"
                             id="assunto" rows="5"
                             value={this.props.assunto}
-                            onchange={this.props.assuntoOnchange} />
+                            onChange={this.props.assuntoOnChange} />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <button className="btn btn-primary ml-3 mb-3">
-                            Adicionar
+                    <button className="btn btn-primary ml-3 mb-3"
+                        onClick={this.preAdicionar.bind(this)}>
+                          Adicionar
                     </button>
+                    <button className="btn btn-primary ml-3 mb-3"
+                            onClick={this.props.limpar}>
+                            Limpar
+                        </button>
+                   
                 </div>
             </form>
         </div>
@@ -82,11 +97,18 @@ const mapStateToProps = store => ({
     assunto: store.contato.assunto
 })
 
+
+    
+
 const mapActionToProps = dispatch => bindActionCreators ({
     dataOnchange,
     nomeOnChange,
     emailOnChange,
-    telefoneOnChange },dispatch)
+    telefoneOnChange,
+    assuntoOnChange,
+    limpar,
+    adicionar
+     },dispatch)
 
 
 export default connect(mapStateToProps, mapActionToProps)(ContatoForm)

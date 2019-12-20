@@ -1,6 +1,6 @@
 import React from 'react'
 
-const URL = "http://localhost:3200/api/cursos"
+// const URL = "http://localhost:3200/api/cursos"
 
 export class Cabecalho extends React.Component {
     

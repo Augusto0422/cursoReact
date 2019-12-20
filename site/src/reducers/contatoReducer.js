@@ -1,9 +1,9 @@
 const INITIAL_STATE = {
-    "data": "2019-09-09",
-    "nome": "Rafael",
-    "email": "rafael@verzel.com.br",
-    "telefone": 23330000,
-    "assunto": "informações sobre o curso 105"
+    data: '',
+    nome: '',
+    email: '',
+    telefone: '',
+    assunto: ''
 }
 
 export default function(state = INITIAL_STATE, action){
@@ -11,11 +11,15 @@ export default function(state = INITIAL_STATE, action){
     switch(action.type){
         case 'ATUALIZA_DATA' : return {...state, data : action.value};
         
-        case 'ATUALIZA_NOME' : return {...state, data : action.value};
+        case 'ATUALIZA_NOME' : return {...state, nome : action.value};
         
-        case 'ATUALIZA_EMAIL' : return {...state, data : action.value};
+        case 'ATUALIZA_EMAIL' : return {...state, email : action.value};
         
-        case 'ATUALIZA_TELEFONE' : return {...state, data : action.value};
+        case 'ATUALIZA_TELEFONE' : return {...state, telefone : action.value};
+        
+        case 'ATUALIZA_ASSUNTO' : return {...state, assunto : action.value};
+        
+        case 'LIMPAR_FORM' : return INITIAL_STATE
         
         default : return state
         
